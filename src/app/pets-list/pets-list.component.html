@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-sm-6 col-md-5 col-lg-3" *ngFor="let item of petDetails">
+    <a target="_blank">
+      <img [src]="item.imagePath" class="image-fluid" width="300" height="200">
+    </a>
+    <div class="pet-name">{{item.name}}</div>
+  </div>
+</div>

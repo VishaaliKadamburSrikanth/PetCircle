@@ -1,3 +1,8 @@
+/*
+ * Created by
+ * Kadambur Srikanth Vishaali ( B00821049)
+ */
+
 nav{
     background-color:slateblue;
   }
@@ -8,22 +13,44 @@ nav{
       cursor: pointer;
   }
   
-    .item:hover
-    {
-      color:black;
-    }
+.item:hover
+{
+    color:black;
+}
   
- span{
-        font-size: larger;
-        color: white;
-        margin-left: 2%;
-        font-family: cursive;
-        font-variant-caps: petite-caps;
-        font-weight: 700;  
- }
+ span
+{
+    font-size: larger;
+    color: white;
+    margin-left: 2%;
+    font-family: cursive;
+    font-variant-caps: petite-caps;
+    font-weight: 700;  
+}
 
- #user 
- 
+@media (min-width:34em) {
+.card-deck > .card
+{
+    width: 29%;
+    flex-wrap: wrap;
+    flex: initial; 
+}
+}
+
+.cardBorder
+{
+    border: 1px solid;
+    margin-right:2%;
+    }
+
+
+.itemImage
+{
+    max-height: 200px;
+    max-width: 200px;
+}
+
+ #user  
 {
     height:30px;
 }
@@ -60,11 +87,11 @@ max-height: 238px;
     max-height: 35px;
     max-width: 50px;
     border-color: transparent;
-    }
+}
 
 .pagination
 {
-    margin-top:10%;
+    margin-top:2%;
     justify-content:center;
 }
 
@@ -93,7 +120,7 @@ max-height: 238px;
 
 .action-bar .fa-search {
     top: 11px;
-    left: -29px;
+    left: -15%;
     position: relative;
     
 }
@@ -101,6 +128,7 @@ max-height: 238px;
 .action-bar .btn-primary {
     padding: 3px 18px;
     border-radius: 20px;
+    margin-left: 10%;
 }
 
 .action-bar .nav-item {
@@ -111,3 +139,4 @@ max-height: 238px;
 {
     height:43px;
 }
+

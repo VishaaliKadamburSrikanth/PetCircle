@@ -26,6 +26,9 @@ import { MatCardModule, MatToolbarModule, MatIconModule, MatMenuModule, MatSiden
 import { MatButtonModule } from '@angular/material/button';
 import { MessagesComponent } from './messages/messages.component';
 import { PetDetailsComponent } from './pet-details/pet-details.component';
+import { MissingService} from  './missing-pets/missing.service';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -50,6 +53,10 @@ import { PetDetailsComponent } from './pet-details/pet-details.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    NgxPaginationModule,
     CarouselModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAZ06qLxgTi-fyT3R0dB8T6E-P_nQBGIno'
@@ -57,7 +64,7 @@ import { PetDetailsComponent } from './pet-details/pet-details.component';
     SliderModule,
     AutoCompleteModule
   ],
-  providers: [],
+  providers: [MissingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

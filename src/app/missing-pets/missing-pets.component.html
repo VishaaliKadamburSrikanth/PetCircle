@@ -1,99 +1,46 @@
-<div class="container"> 
-  <nav class="navbar navbar-expand-sm navbar-light bg-light action-bar justify-content-between">                   
-    <ul class="navbar-nav">                  
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
-          Choose the breed of pet
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" >Lab</a>
-          <a class="dropdown-item" >Puppy</a>
-          <a class="dropdown-item" >Pug</a>
-        </div>
-        
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
-          Choose the color
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" >black</a>
-          <a class="dropdown-item" >white</a>
-          <a class="dropdown-item" >brown</a>
-        </div>
-      </li>
+<!--
+ Created by
+ Kadambur Srikanth Vishaali ( B00821049)
+-->
 
-    <div class="input-group col-md-4">
-        <input class="form-control py-2 rounded" type="search" value="search">
-        <i class="fa fa-search"></i>
-  </div>
-    </ul>
-    <button type="button" class="btn btn-primary">Apply</button>
+
+<div class="container"> 
+  <nav class="navbar nyavbar-expand-sm navbar-light bg-light action-bar justify-content-between">
+      <div class="input-group col-md-4">
+          <input class="form-control py-2 rounded" [(ngModel)]="breed" type="search" placeholder="Enter breed">   
+          <i class="fa fa-search"></i>                     
+      </div>
+
+      <div class="input-group col-md-4">
+          <input class="form-control py-2 rounded" [(ngModel)]="color" type="search" placeholder="Enter color">
+          <i class="fa fa-search"></i> 
+      </div>
+
+      <div class="input-group col-md-4">
+          <input class="form-control py-2 rounded" [(ngModel)]="desc" type="search" placeholder="Enter description">
+          <i class="fa fa-search"></i> 
+          <button type="button" class="btn btn-primary" (click)="filterMissingPets()">Apply</button>
+      </div>
+
   </nav>
 
-
-<div class="row">
-<div class="card-deck">
-<div class="card">
-<img class="card-img-top" src="assets/images/Mdog1.jpg" alt="Missing pet">
-<div class="card-body">
-  <h5 class="card-title">Dingo (Male) - 3 years</h5>
-  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-  <p class="card-text"><small class="text-muted">Last updated 25 mins ago</small></p>
-</div>
-</div>
-<div class="card">
-<img class="card-img-top" src="assets/images/Mdog2.png" alt="Missing pet">
-<div class="card-body">
-  <h5 class="card-title">Shiny (Female) - 2 years</h5>
-  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-</div>
-</div>
-<div class="card">
-<img class="card-img-top" src="assets/images/Mdog3.jpg" alt="Missing pet">
-<div class="card-body">
-  <h5 class="card-title">Roorky (Female) - 3 years</h5>
-  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-  <p class="card-text"><small class="text-muted">Last updated 3 days ago</small></p>
-</div>
-</div>
-</div>
-</div>
-
-<div class="row">
-<div class="card-deck"> 
-  <div class="card">
-    <img class="card-img-top" src="assets/images/Mdog4.jpg" alt="Missing pet">
-    <div class="card-body">
-      <h5 class="card-title">Hershey (Male) - 9 years</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <p class="card-text"><small class="text-muted">Last updated 2 days ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img class="card-img-top" src="assets/images/Mdog5.jpg" alt="Missing pet">
-    <div class="card-body">
-      <h5 class="card-title">Tommy (Female) - 5 years</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <p class="card-text"><small class="text-muted">Last updated 6 days ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img class="card-img-top" src="assets/images/Mdog6.jpg" alt="Missing pet">
-    <div class="card-body">
-      <h5 class="card-title">Jimmy (Male) - 4 years </h5>
-      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <p class="card-text"><small class="text-muted">Last updated 1 week ago</small></p>
-    </div>
-  </div>
-</div>
-</div>
+<div class="row card-group">
+      <div class="card-deck">  
+          <div class="card mb-4" *ngFor="let mp of missingPets | paginate: { id: 'pages',itemsPerPage: 9,currentPage: page}">
+            <img class="card-img-top" src="{{mp.image}}" alt="Missing pet">
+            <div class="card-body">
+              <h5 class="card-title">{{mp.pet_name}} ({{mp.gender}})</h5>
+              <!-- <h6 class="card-text">{{mp.gender}}</h6> -->
+              <h6 class="card-text">{{mp.age}} Years </h6> 
+              <p class="card-text">{{mp.description}}</p>
+              </div>
+          </div> 
+        </div>
+      </div>
       
-<ul class="pagination">
-  <li class="page-item"><a class="page-link" >Previous</a></li>
-  <li class="page-item"><a class="page-link" >1</a></li>
-  <li class="page-item active"><a class="page-link" >2</a></li>
-  <li class="page-item"><a class="page-link" >3</a></li>              
-  <li class="page-item"><a class="page-link" >Next</a></li>
-</ul>
+      <div class="pagination">
+          <pagination-controls  id="pages" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+      </div>
+      
 </div> 
+      

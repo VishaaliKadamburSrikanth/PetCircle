@@ -1,7 +1,12 @@
+/**
+ Created by
+ Aravind Sundarrajan (B00824107)
+ */
 import { Component, OnInit } from '@angular/core';
 import { DropdownModel } from './dropdown.model';
 import { PetDetails } from '../pets-list/pet.details.model';
 import { HttpClient } from '@angular/common/http';
+import { BASE_URL } from 'src/environments/environment';
 
 @Component({
   selector: 'app-search',
@@ -36,7 +41,7 @@ export class SearchComponent implements OnInit {
    * This method will make an API call to populate the breeds Dropdown
    */
   getBreeds() {
-    this.httpClient.get('http://localhost:3000/getBreeds')
+    this.httpClient.get(BASE_URL.BLUE_NOSE + '/getBreeds')
       .subscribe((data: any) => {
         console.log(data);
         data.forEach((item, index) => {
@@ -48,7 +53,7 @@ export class SearchComponent implements OnInit {
       })
   }
   getCategories() {
-    this.httpClient.get('http://localhost:3000/getCategories')
+    this.httpClient.get(BASE_URL.BLUE_NOSE + '/getCategories')
       .subscribe((data: any) => {
         console.log(data);
         data.forEach((item, index) => {
@@ -60,7 +65,7 @@ export class SearchComponent implements OnInit {
       })
   }
   getSearchResults() {
-    this.httpClient.post('http://localhost:3000/getPets',
+    this.httpClient.post(BASE_URL.BLUE_NOSE + '/getPets',
       {
         "category": this.selectedCategory === undefined ? '' : this.getCategoryName(this.selectedCategory),
         "breed": this.selectedBreed === undefined ? '' : this.getBreedName(this.selectedBreed)

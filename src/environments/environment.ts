@@ -5,7 +5,9 @@
 export const environment = {
   production: false
 };
-
+export const BASE_URL = {
+  BLUE_NOSE: 'http://129.173.22.35:26678'
+}
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

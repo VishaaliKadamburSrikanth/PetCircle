@@ -7,40 +7,30 @@
 <div class="row">
   <div class="col-sm-6 col-md-4 col-lg-3">
     <div class="form-group">
-      <label for="owner">Owner</label>
-      <p-autoComplete id="owner" [(ngModel)]="ownerText" [suggestions]="suggesstions" placeholder="Start typing..">
-      </p-autoComplete>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-6 col-md-4 col-lg-3">
-    <div class="form-group">
       <label for="category">Pick a Category</label>
-      <select [(ngModel)]="selectedCategory">
+      <select class="form-control" [(ngModel)]="selectedCategory">
         <option *ngFor="let category of categories" [ngValue]="category.id"> {{category.name}}</option>
       </select>
     </div>
   </div>
-</div>
-<div class="row">
   <div class="col-sm-6 col-md-4 col-lg-3">
     <div class="form-group">
-      <label for="category">Pick a Breed</label>
-      <select [(ngModel)]="selectedBreed">
-        <option *ngFor="let category of breeds" [ngValue]="category.id"> {{category.name}}</option>
+      <label for="breed">Pick a Breed</label>
+      <select class="form-control" [(ngModel)]="selectedBreed">
+        <option *ngFor="let breed of breeds" [ngValue]="breed.id"> {{breed.name}}</option>
       </select>
     </div>
   </div>
-</div>
-<div class="row">
   <div class="col-sm-6 col-md-4 col-lg-3">
-    <span class="danger" *ngIf="showErrorMessage"> Please select atleast one search condition</span>
-  </div>
-  <div class="col-sm-6 col-md-4 col-lg-3">
-    <button class="btn btn-primary" (click)="search()">Search</button>
+    <div class="form-group">
+      <label for="category">
+        <span class="danger" *ngIf="showErrorMessage"> Please select atleast one search condition</span>
+      </label>
+      <button class="btn btn-primary" [class.margin-top]="!showErrorMessage" (click)="search()">Search</button>
+    </div>
   </div>
 </div>
+
 <div class="clearfix"></div>
 <div class="row">
   <div class="col-sm-6 col-md-12 col-lg-12">

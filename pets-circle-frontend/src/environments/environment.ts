@@ -6,7 +6,8 @@ export const environment = {
   production: false
 };
 export const BASE_URL = {
-  BLUE_NOSE: 'http://129.173.22.35:26678'
+  BLUE_NOSE: 'http://129.173.22.35:26678',
+  // BLUE_NOSE: 'http://localhost:3000'
 }
 /*
  * For easier debugging in development mode, you can import the following file

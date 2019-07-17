@@ -72,7 +72,7 @@ It also enables avid dog lovers to find other people who are willing to adopt pe
     - MySQL
 
 ## Installation instructions - Local
-- Clone the git repository `https://git.cs.dal.ca/aravinds/pets-circle`
+- Clone the git repository `https://git.cs.dal.ca/aravinds/pets-circle.git`
 - **To run the backend**
     
     1.  navigate to the backend folder

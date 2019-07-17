@@ -127,6 +127,7 @@ Validation:
     - Angular Google Maps - https://angular-maps.com/guides/getting-started/ 
             Components
                     - Map component
+    - Angular pagination - https://www.npmjs.com/package/ngx-pagination
 
 ## References
 
@@ -139,3 +140,5 @@ Validation:
 [4] (n.d.). Retrieved July 17, 2019, from https://angular.io/guide/httpNode js. (n.d.). Retrieved July 17, 2019, from https://www.w3schools.com/nodejs/nodejs_mysql.aspNode.js v12.6.0 Documentation.
 
 [5] (n.d.). Retrieved from https://nodejs.org/api/http.html
+
+[6] (n.d.). Ngx-pagination. (n.d.). Retrieved July 17, 2019, from https://www.npmjs.com/package/ngx-pagination

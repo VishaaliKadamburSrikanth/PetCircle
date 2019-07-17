@@ -108,23 +108,14 @@ Validation:
 **Feature 1: Search Pets**
 - After the user selects the breed and category in the respective dropdowns, the corresponding pets will be retrieved from the database and displayed in the UI
 
+
+**Bluenose URL - `http://129.173.22.35:26677`**
+
+
 ## Note
 - For frontend, the code used is W3 compliant which is already validated in assignment 2. 
 - For backend, we have used nodejs.
    
-## References
-
-[1] Angular Documentation https://angular.io/guide/forms
-
-[2] Images were taken from https://www.google.com/search?safe=active&tbm=isch&source=hp&biw=1504&bih=860&ei=DsvyXPHGOcqIggfa44rACg&q=dogs&oq=dogs&gs_l=img.3..35i39j0l9.1003.1343..1449...0.0..0.104.378.3j1......0....1..gws-wiz-img.....0.ioK9_Z_ueOk
-
-[3] (n.d.). Retrieved July 17, 2019, from https://angular.io/guide/http
-
-[4] (n.d.). Retrieved July 17, 2019, from https://angular.io/guide/httpNode js. (n.d.). Retrieved July 17, 2019, from https://www.w3schools.com/nodejs/nodejs_mysql.aspNode.js v12.6.0 Documentation.
-
-[5] (n.d.). Retrieved from https://nodejs.org/api/http.html
-
-
 ## Refered Angular Libraries used
     - Primeng - https://www.primefaces.org/primeng/#/
             Components
@@ -136,6 +127,15 @@ Validation:
     - Angular Google Maps - https://angular-maps.com/guides/getting-started/ 
             Components
                     - Map component
-                    
-                    
-**Bluenose URL - `http://129.173.22.35:26677`**
+
+## References
+
+[1] Angular Documentation https://angular.io/guide/forms
+
+[2] Images were taken from https://www.google.com/search?safe=active&tbm=isch&source=hp&biw=1504&bih=860&ei=DsvyXPHGOcqIggfa44rACg&q=dogs&oq=dogs&gs_l=img.3..35i39j0l9.1003.1343..1449...0.0..0.104.378.3j1......0....1..gws-wiz-img.....0.ioK9_Z_ueOk
+
+[3] (n.d.). Retrieved July 17, 2019, from https://angular.io/guide/http
+
+[4] (n.d.). Retrieved July 17, 2019, from https://angular.io/guide/httpNode js. (n.d.). Retrieved July 17, 2019, from https://www.w3schools.com/nodejs/nodejs_mysql.aspNode.js v12.6.0 Documentation.
+
+[5] (n.d.). Retrieved from https://nodejs.org/api/http.html

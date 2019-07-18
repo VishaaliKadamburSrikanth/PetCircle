@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="col-sm-12 card">
+    <div class="card-body">
+      <h3> Create new post </h3>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="missing-tab" data-toggle="tab" href="#missing" role="tab"
+            aria-selected="true">Missing pets</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" id="adoption-tab" data-toggle="tab" href="#adoption" role="tab"
+            aria-selected="false">Adoption</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" id="playtime-tab" data-toggle="tab" href="#playtime" role="tab"
+            aria-selected="false">Playtime</a>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="row" id="form">
+      <div class="col-sm-6">
+        <form>
+          <div class="form-group">
+            <label id="label">Name *</label>
+            <input type="text" class="form-control" placeholder="Jack" id="name">
+          </div>
+          <div *ngIf="alphalinvalid" class="error">
+            Please enter valid name
+          </div>
+          <div class="form-group">
+            <label>Breed</label>
+            <input type="text" class="form-control" placeholder="German Shepherd" id="breed">
+          </div>
+          <div *ngIf="breedinvalid" class="error">
+            Please enter valid breed name
+          </div>
+
+          <div class="form-group">
+            <label>Age *</label>
+            <input type="number" class="form-control" min="1" max="20" placeholder="7 years">
+          </div>
+
+          <div class="form-group">
+            <label>Colour</label>
+            <input type="text" class="form-control" placeholder="Black" id="color">
+          </div>
+          <div *ngIf="colorinvalid" class="error">
+            Please enter valid color
+          </div>
+
+          <div class="form-group">
+            <label class="label">Phone number *</label>
+            <input type="number" class="form-control" placeholder="+19021544574" id="telephone">
+          </div>
+
+          <div *ngIf="telephoneinvalid" class="error">
+            Please enter valid number
+          </div>
+
+          <div class="form-group">
+            <label class="label">Email *</label>
+            <input type="email" class="form-control" placeholder="abc@gmail.com" id="email" required>
+          </div>
+
+          <div *ngIf="emailinvalid" class="error">
+            Please enter valid email
+          </div>
+
+          <div class="form-group">
+            <label>Additional description (Optional)</label>
+            <textarea class="form-control" rows="5" placeholder="Any additional information of the dog."></textarea>
+          </div>
+          <button type="button" class="btn btn-primary" (click)="validateform()">Submit</button>
+        </form>
+      </div>
+
+      <div class="col-sm-6 profile">
+        <div class="card body" id="uploadinner">
+          <img src="assets/images/profile.png" class="rounded-circle" alt="User profile">
+          <h4> Upload image </h4>
+          <div class="form-group">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input">
+              <label class="custom-file-label">Choose file</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

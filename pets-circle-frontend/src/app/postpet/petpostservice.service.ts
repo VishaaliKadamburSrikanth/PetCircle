@@ -14,7 +14,7 @@ export class PetpostserviceService {
     console.log("posted");
     console.log(petdata);
     
-    return this.http.post(BASE_URL.BLUE_NOSE + 'postpet/postpets',petdata);
+    return this.http.post(BASE_URL.BLUE_NOSE + '/postpet/postpets',petdata);
    
  }
  // get request to fetch details from the database

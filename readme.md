@@ -36,7 +36,15 @@ It also enables avid dog lovers to find other people who are willing to adopt pe
         
         - `getPets`         POST REQUEST     - Takes a request body  and returns the list of pets for the given category and breed
 
-**Feature 3:**
+**Feature 3: MutualMatch pets**
+**Developer : Karan Gill(B00757467)**
+- The mutual pets page will display pets details that are fetched from MySQL database as well it will allow you to filter.
+- The Mutual Match shows the pets whom the user like as well as which are even liked by other person as well.
+- There is a SQL query to fecth the data from the database depending on the user.
+- Also, the user will be able to provide the filter list of mutual match pets based selections like type of breed, color and any particular description.
+- The data fetched from the Mysql is then sent in the cards and displayed.
+- The backend functionality are in  **MutualMatch.js** file.
+- REFERENCES: Some of the front end code as well as the backend is taken from teammates so that the overall look become similar but backend functionality is different in some concepts.
 
 **Feature 4:**
 

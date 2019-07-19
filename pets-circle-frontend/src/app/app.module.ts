@@ -30,7 +30,8 @@ import { MissingService} from  './missing-pets/missing.service';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { HttpClientModule} from '@angular/common/http';
 import { PostpetComponent } from './postpet/postpet.component';
-import { MutualMatchComponent } from './mutual-match/mutual-match.component';
+
+
 
 @NgModule({
   declarations: [
@@ -47,8 +48,7 @@ import { MutualMatchComponent } from './mutual-match/mutual-match.component';
     RegistrationComponent,
     MessagesComponent,
     PetDetailsComponent,
-    PostpetComponent,
-    MutualMatchComponent
+    PostpetComponent
   ],
   imports: [
     BrowserModule,

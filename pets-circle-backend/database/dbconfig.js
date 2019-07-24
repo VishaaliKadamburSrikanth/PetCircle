@@ -7,15 +7,12 @@
 
 var mysql = require('mysql');
 
-var connection = mysql.createConnection({
+
+var connection = mysql.createPool({
   host: "dalcloud.mysql.database.azure.com",
   user: "aravind@dalcloud",
   password: "password@123",
   database: "web"
-});
-
-connection.connect(function(err) {
-    if (err) throw err;
 });
 
 module.exports = connection;

@@ -6,6 +6,7 @@
 module.exports = function (app) {
   var controller = require('./controller/appController');
   const searchController = require('./controller/searchController');
+  var postpet = require('./controller/postpetsController');
   console.log("into app routes")
 
   // Cors handling
@@ -29,4 +30,12 @@ module.exports = function (app) {
     .get(searchController.getBreeds)
   app.route('/getPets')
     .post(searchController.searchPets)
+
+  
+    // post pet functionality
+    app.route('/postpet/postpets')
+    .post(postpet.postdetails);
+    
+    app.route('/postpet/getpets')
+    .get(postpet.getpets)  
 };

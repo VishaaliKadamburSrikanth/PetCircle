@@ -10,6 +10,7 @@ import { PostComponent } from './post/post.component';
 import { MissingPetsComponent } from './missing-pets/missing-pets.component';
 import { MessagesComponent } from './messages/messages.component';
 import { PetDetailsComponent } from './pet-details/pet-details.component';
+import { PostpetComponent } from './postpet/postpet.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path: 'post',
     component: PostComponent
+  },
+  {
+    path: 'postpet',
+    component: PostpetComponent,
   },
   {
     path: 'missing-pets',

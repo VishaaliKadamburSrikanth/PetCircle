@@ -36,7 +36,15 @@ It also enables avid dog lovers to find other people who are willing to adopt pe
         
         - `getPets`         POST REQUEST     - Takes a request body  and returns the list of pets for the given category and breed
 
-**Feature 3:**
+**Feature 3: petdetails**
+**Sai Charan Reddy Pullanna Gari (B00823341)**
+- Pet details feature will display the details of the pet owned by the user.
+- On the initial loading of the page pet details are displayed if the user has already entered details about pet.
+- If the user wish to enter details about the pet . User should click on add pet button which will redirect the user to pet details form, where user should enter details about the pet.
+- Onclick of submit button a new record for the pet is added.
+-The back end feature is avialble in **postpet.js** in routes folder.
+- Front end is avialable in postpet and pet-details components in src folder.
+
 
 **Feature 4:**
 
@@ -108,6 +116,12 @@ Validation:
 **Feature 1: Search Pets**
 - After the user selects the breed and category in the respective dropdowns, the corresponding pets will be retrieved from the database and displayed in the UI
 
+**Feature 3:Pet details**
+- On load of page pet details are displayed if the user is existing and already entered pet details.
+- To add new pet click on add pet button which navigates user to pet details form .
+-Enter details and click enter new records are added and are displayed. 
+
+
 
 **Bluenose URL - `http://129.173.22.35:26677`**
 
@@ -142,3 +156,5 @@ Validation:
 [5] (n.d.). Retrieved from https://nodejs.org/api/http.html
 
 [6] (n.d.). Ngx-pagination. (n.d.). Retrieved July 17, 2019, from https://www.npmjs.com/package/ngx-pagination
+
+[7] (n.d.). Retreived from https://stackoverflow.com/questions/48216410/angular-4-base64-upload-component

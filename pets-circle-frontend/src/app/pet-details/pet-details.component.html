@@ -1,110 +1,91 @@
 <div class="container-fluid">
-  <div class=row>
-    <div class="col-12">
-      <div class="row">
-        <div class="col-md-6" id="pets2">
-          <div class="card" style="width:100% ">
-            <img class="img-thumbnail" src="assets\images\pet3.png" i alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Tommy</h5>
-
-            </div>
+  
+  <div  class="row  blogRow">
+    <div class="col-sm-10"></div>
+    <div class="col-sm-2">
+ <button type="button" class="btn btn-dark post" [routerLink]="['/postpet']" >New Pet <i class="fa fa-plus addPet" aria-hidden="true"></i></button>
+    </div>
+  </div>
+  <div class="row">
+  
+  <div class="col-12">
+    <div *ngFor="let data of petData">
+    <div class="row">
+      <div class="col-md-6" id="pets2">
+        <div class="card" style="width:100% ">
+          <img class="img-thumbnail" [src]="data.image"  i alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{data.pet_name}}</h5>
 
           </div>
 
         </div>
-        <div class="col-md-6" id="pets1">
-          <div class="card" style="width: 100%;">
-            <div class="card-body">
-              <table>
-                <tr>
-                  <th scope="row">
-                    <h6><b>Pet Name</b></h6>
-                  </th>
-                  <td>
-                    <h6>Tommy</h6>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <h6><b>Gender</b></h6>
-                  </th>
-                  <td>
-                    <h6>Male</h6>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <h6><b>Age</b></h6>
-                  </th>
-                  <td>
-                    <h6>9 Years</h6>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <h6><b>Date of Birth</b></h6>
-                  </th>
-                  <td>
-                    <h6>March 10 2010 </h6>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <h6><b>Breed</b></h6>
-                  </th>
-                  <td>
-                    <h6>Lorem ipsum</h6>
-                  </td>
-                </tr>
 
-                <tr>
-                  <th scope="row">
-                    <h6><b>Has your dog had formal obediance training?</b></h6>
-                  </th>
-                  <td>
-                    <h6>Yes</h6>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <h6><b>Is your dog afraid of certain noises or items?</b></h6>
-                  </th>
-                  <td>
-                    <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</h6>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <h6><b>Are there certain types of people your dog fears or dislikes?</b></h6>
-                  </th>
-                  <td>
-                    <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h6>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <h6><b>Has Your Dog ever Bitten someone?</b></h6>
-                  </th>
-                  <td>
-                    <h6>No </h6>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <h6><b>Are there specific types of dogs your dog does not interact well around?</b></h6>
-                  </th>
-                  <td>
-                    <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h6>
-                  </td>
-                </tr>
-              </table>
-            </div>
+      </div>
+      <div class="col-md-6" id="pets1">
+        <div class="card" style="width: 100%;">
+          <div class="card-body">
+            <table>
+              <tr>
+                <th scope="row">
+                  <h6><b>Pet Name</b></h6>
+                </th>
+                <td>
+                  <h6>{{data.pet_name}}</h6>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <h6><b>Gender</b></h6>
+                </th>
+                <td>
+                  <h6>{{data.gender}}</h6>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <h6><b>Age</b></h6>
+                </th>
+                <td>
+                  <h6>{{data.age}}</h6>
+                </td>
+              </tr>
+              
+              <tr>
+                <th scope="row">
+                  <h6><b>Breed</b></h6>
+                </th>
+                <td>
+                  <h6>{{data.breed}}</h6>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <h6><b>Color</b></h6>
+                </th>
+                <td>
+                  <h6>{{data.color}}</h6>
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row">
+                  <h6><b>Pet Description</b></h6>
+                </th>
+                <td>
+                  <h6>
+                    {{data.description}}</h6>
+                </td>
+              </tr>
+              
+            </table>
           </div>
         </div>
-
       </div>
 
     </div>
   </div>
+  </div>
+</div>
+
 </div>

@@ -29,6 +29,7 @@ import { PetDetailsComponent } from './pet-details/pet-details.component';
 import { MissingService} from  './missing-pets/missing.service';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { HttpClientModule} from '@angular/common/http';
+import { PostpetComponent } from './postpet/postpet.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { HttpClientModule} from '@angular/common/http';
     MissingPetsComponent,
     RegistrationComponent,
     MessagesComponent,
-    PetDetailsComponent
+    PetDetailsComponent,
+    PostpetComponent
   ],
   imports: [
     BrowserModule,

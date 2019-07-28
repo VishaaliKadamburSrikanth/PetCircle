@@ -1,15 +1,7 @@
-/*
- * Created by
- * Kadambur Srikanth Vishaali ( B00821049)
- */
-
-const express = require('express'),
-    app = express(),
-    bodyParser = require('body-parser');
-
-const auth = require('./auth');
 let jwt = require('jsonwebtoken');
 let config = require('./secret');
+let middleware = require('./auth');
+
 class TokenGenerator {
     login(req, res) {
         let username = req.body.username;
@@ -52,28 +44,4 @@ class TokenGenerator {
         });
     }
 }
-
-
-// port = process.env.PORT || 3000;
-port = process.env.PORT || 26678;
-app.listen(port);
-
-console.log('Server up on port: ' + port);
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
-let handlers = new TokenGenerator();
-app.post('/login', handlers.login);
-
-app.get('/', auth.checkToken, handlers.index);
-var routes = require('./approutes');
-routes(app);
-
-
-
 

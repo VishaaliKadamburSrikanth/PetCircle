@@ -26,10 +26,21 @@ exports.getBreeds = function (request, response) {
     });
 };
 
+exports.getColors = function (request, response) {
+    search.getColors(function (error, data) {
+        if (error) {
+            response.send(error);
+        }
+        console.log('res', data);
+        response.send(data);
+    });
+};
+
 exports.searchPets = function (request, response) {
     let breed = request.body.breed;
     let category = request.body.category;
-    search.getPets(breed, category, (error, data) => {
+    let color = request.body.color
+    search.getPets(breed, category, color, (error, data) => {
         if (error) {
             response.send(error);
         } else {

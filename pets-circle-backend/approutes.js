@@ -30,17 +30,19 @@ module.exports = function (app) {
     .get(searchController.getBreeds)
   app.route('/getPets')
     .post(searchController.searchPets)
+  app.route('/getColors')
+    .get(searchController.getColors)
 
-    //Routes to post about the pet
-    //Post - Missing pets
-    app.route('/postMissingPets')
-       .post(controller.post);
+  //Routes to post about the pet
+  //Post - Missing pets
+  app.route('/postMissingPets')
+    .post(controller.post);
 
-    //Post - Adoption pets    
-    app.route('/postAdoptionPets')
-     .post(controller.post);
-       
-    //Post - Pplaytime pets
-    app.route('/postPlaytimePets')
-     .post(controller.post);
+  //Post - Adoption pets    
+  app.route('/postAdoptionPets')
+    .post(controller.post);
+
+  //Post - Pplaytime pets
+  app.route('/postPlaytimePets')
+    .post(controller.post);
 };

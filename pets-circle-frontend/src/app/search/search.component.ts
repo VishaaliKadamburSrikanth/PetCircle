@@ -15,11 +15,14 @@ import { BASE_URL } from 'src/environments/environment';
 })
 export class SearchComponent implements OnInit {
 
-  selectedCategory;
-  selectedBreed;
+  selectedCategory = 1;
+  selectedBreed = 1;
+  selectedColor = 1;
   ownerText = "";
+  showSpinner = true;
   categories: DropdownModel[] = [];
   breeds: DropdownModel[] = [];
+  colors: DropdownModel[] = [];
   petDetails: PetDetails[] = [];
   suggesstions = [];
   showErrorMessage = false;
@@ -28,6 +31,7 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     this.getBreeds();
     this.getCategories();
+    this.getColors();
   }
   search() {
     if (this.selectedCategory === undefined && this.selectedBreed === undefined && this.ownerText == "") {
@@ -52,26 +56,43 @@ export class SearchComponent implements OnInit {
         })
       })
   }
+  getColors() {
+    this.httpClient.get(BASE_URL.BLUE_NOSE + '/getColors')
+      .subscribe((data: any) => {
+        console.log(data);
+        data.forEach((item, index) => {
+          this.colors.push({
+            id: index + 1,
+            name: item.color
+          })
+        })
+      })
+  }
   getCategories() {
     this.httpClient.get(BASE_URL.BLUE_NOSE + '/getCategories')
       .subscribe((data: any) => {
         console.log(data);
         data.forEach((item, index) => {
           this.categories.push({
+
             id: index + 1,
             name: item.category
-          })
+          });
         })
+        this.showSpinner = false;
       })
   }
   getSearchResults() {
+    this.showSpinner = true;
     this.httpClient.post(BASE_URL.BLUE_NOSE + '/getPets',
       {
         "category": this.selectedCategory === undefined ? '' : this.getCategoryName(this.selectedCategory),
-        "breed": this.selectedBreed === undefined ? '' : this.getBreedName(this.selectedBreed)
+        "breed": this.selectedBreed === undefined ? '' : this.getBreedName(this.selectedBreed),
+        "color": this.selectedColor === undefined ? '' : this.getColorName(this.selectedColor),
       })
       .subscribe((data: PetDetails[]) => {
         this.petDetails = data;
+        this.showSpinner = false;
       })
   }
 
@@ -80,5 +101,8 @@ export class SearchComponent implements OnInit {
   }
   getBreedName(id: number) {
     return this.breeds.find(item => item.id === id).name
+  }
+  getColorName(id: number) {
+    return this.colors.find(item => item.id === id).name
   }
 }

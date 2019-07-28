@@ -6,6 +6,7 @@
 //  Missing pets page
 
 var Missing = require('../routes/Missing.js');
+var Post = require('../routes/Post.js');
 
 exports.fetchMissingPets = function(req, res) {
   Missing.fetchMissingPets(function(err, missing ) {  
@@ -30,3 +31,17 @@ exports.fetchMissingPets = function(req, res) {
       res.json(result);
     });
   };
+
+  //Post about pet
+  exports.post = function(req, res) {
+    
+     
+    Post.postPets(req, function(err, post) {  
+          if (err)
+          res.send(err);
+          console.log('res', post);
+        res.send(post);
+      });
+    };
+
+    

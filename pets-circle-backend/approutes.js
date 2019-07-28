@@ -19,6 +19,7 @@ module.exports = function (app) {
   app.route('/missing')
     .get(controller.fetchMissingPets)
     .post(controller.filterMissingPets);
+
   /**
    * Search functionality
    */
@@ -29,4 +30,17 @@ module.exports = function (app) {
     .get(searchController.getBreeds)
   app.route('/getPets')
     .post(searchController.searchPets)
+
+    //Routes to post about the pet
+    //Post - Missing pets
+    app.route('/postMissingPets')
+       .post(controller.post);
+
+    //Post - Adoption pets    
+    app.route('/postAdoptionPets')
+     .post(controller.post);
+       
+    //Post - Pplaytime pets
+    app.route('/postPlaytimePets')
+     .post(controller.post);
 };

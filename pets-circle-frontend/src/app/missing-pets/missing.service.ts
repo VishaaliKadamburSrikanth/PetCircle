@@ -11,14 +11,14 @@ import { BASE_URL } from 'src/environments/environment';
 export interface MissingPets {
 
   pet_id: number,
-  pet_name: string,
+  name: string,
   age: number,
   description: string,
   gender: string,
   category: string,
   color: string,
   breed: string,
-  image: string,
+  image: string
 }
 
 

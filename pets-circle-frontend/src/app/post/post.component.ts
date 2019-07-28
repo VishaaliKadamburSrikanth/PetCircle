@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { PostService, postPets } from './post.service';
 
 @Component({
   selector: 'app-post',
@@ -15,10 +15,90 @@ export class PostComponent implements OnInit {
   breedinvalid: Boolean;
   telephoneinvalid: Boolean;
 
-  constructor(private routes: Router) { }
+  // api 
+  postpets : postPets;  
+  breed: string;
+  color: string;
+  desc: string;
+  name: string;
+  gender: string;
+  age: number;
+  phoneno: number;
+  email: string;
+  category: string;  
+  income: string;
+  care: string;
+  
+
+  constructor(private postservice: PostService) { }
 
   ngOnInit() {
   }
+
+  
+  postMissingPets()
+  {
+    console.log("into post missing pets");
+
+    var params = {
+
+      name: this.name,
+      gender: this.gender,
+      age: this.age,
+      breed: this.breed,
+      color: this.color,
+      phoneno: this.phoneno, 
+      email: this.email, 
+      category: 'missing',  
+      desc: this.desc 
+      }    
+      
+    console.log(this.name);
+    console.log(params);
+    
+    this.postservice.postMissingPets(params)
+    .subscribe((data: postPets) => this.postpets = data);
+    
+    }
+
+postAdoptionPets()
+    {
+      var params = {
+      name: this.name,
+      gender: this.gender,
+      age: this.age,
+      breed: this.breed,
+      color: this.color,
+      phoneno: this.phoneno, 
+      email: this.email, 
+      category: 'adoption',       
+      annual_income: this.income,
+      care: this.care
+
+      }
+
+
+console.log(params);
+
+this.postservice.postAdoptionPets(params)
+.subscribe((data: postPets) => this.postpets = data); 
+    }
+
+postPlaytimePets()
+    {
+      var params = {
+        breed:this.breed,
+        color:this.color,
+        desc:this.desc    
+      }
+
+
+console.log(params);
+
+this.postservice.postPlaytimePets(params)
+.subscribe((data: postPets) => this.postpets = data); 
+    }
+
 
   show() {
     Swal.fire(
@@ -27,9 +107,9 @@ export class PostComponent implements OnInit {
   }
 
   validateform() {
-    var only_alpha = /^([a-zA-z\s]{4,32})$/;
+    var only_alpha = /^([a-zA-z\s]{1,32})$/;
     var mailformat = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-    var telehone = /^\+\d{1,3}\s\d{3}\s\d{3}\s\d{4}/;
+    var telephone = /^[0-9]*$/;
 
     //Name
     if ((<HTMLInputElement>document.getElementById("name")).value.match(only_alpha)) {
@@ -66,7 +146,7 @@ export class PostComponent implements OnInit {
 
 
     //Telephone
-    if ((<HTMLInputElement>document.getElementById("telephone")).value.match(telehone)) {
+    if ((<HTMLInputElement>document.getElementById("telephone")).value.match(telephone)) {
       this.telephoneinvalid = false;
     }
     else {
@@ -75,5 +155,5 @@ export class PostComponent implements OnInit {
 
 
   }
-
+   
 }

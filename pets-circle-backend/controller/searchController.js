@@ -48,3 +48,14 @@ exports.searchPets = function (request, response) {
         }
     });
 };
+exports.matchPet = function (request, response) {
+    let parentPetId = request.body.parentPetId
+    let matchingPetId = request.body.matchingPetId
+    search.matchPet(parentPetId, matchingPetId, (error, data) => {
+        if (error) {
+            response.send(error);
+        } else {
+            response.json(data);
+        }
+    })
+}

@@ -33,6 +33,10 @@ module.exports = function (app) {
   app.route('/getColors')
     .get(searchController.getColors)
 
+  // match pets
+  app.route('/matchPet')
+    .post(searchController.matchPet)
+    
   //Routes to post about the pet
   //Post - Missing pets
   app.route('/postMissingPets')

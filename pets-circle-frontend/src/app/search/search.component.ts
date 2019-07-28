@@ -7,7 +7,8 @@ import { DropdownModel } from './dropdown.model';
 import { PetDetails } from '../pets-list/pet.details.model';
 import { HttpClient } from '@angular/common/http';
 import { BASE_URL } from 'src/environments/environment';
-
+import * as _ from 'lodash';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -26,7 +27,8 @@ export class SearchComponent implements OnInit {
   petDetails: PetDetails[] = [];
   suggesstions = [];
   showErrorMessage = false;
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,
+    private router: Router) { }
 
   ngOnInit() {
     this.getBreeds();
@@ -51,7 +53,7 @@ export class SearchComponent implements OnInit {
         data.forEach((item, index) => {
           this.breeds.push({
             id: index + 1,
-            name: item.breed
+            name: _.upperFirst(item.breed)
           })
         })
       })
@@ -76,7 +78,7 @@ export class SearchComponent implements OnInit {
           this.categories.push({
 
             id: index + 1,
-            name: item.category
+            name: _.upperFirst(item.category)
           });
         })
         this.showSpinner = false;
@@ -95,7 +97,10 @@ export class SearchComponent implements OnInit {
         this.showSpinner = false;
       })
   }
-
+  selectedPet(event) {
+    localStorage.setItem('parentItem', JSON.stringify(event));
+    this.router.navigate(['/find-match']);
+  }
   getCategoryName(id: number) {
     return this.categories.find(item => item.id === id).name
   }

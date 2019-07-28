@@ -49,8 +49,22 @@ search.getColors = function (response) {
 search.getPets = (breed, category, color, response) => {
     console.log('breed  ' + breed + 'category       ' + category + 'color ' + color)
     console.log('**********')
-    let query = "select * from pet where breed='" + breed + "' and category='" + category + "' and color='" + color + "'"
+    let query = "select * from pet"
+    // let query = "select * from pet where breed='" + breed + "' and category='" + category + "' and color='" + color + "'"
     console.log(query);
+    sql.query(query, function (error, data) {
+        if (error) {
+            console.log("error: ", error);
+            response(error, null);
+        }
+        else {
+            response(null, data);
+        }
+    });
+}
+search.matchPet = (parentPetId, matchingPetId, response) => {
+    console.log('parent pet id      ' + parentPetId, 'matching pet id      ', matchingPetId)
+    let query = 'update pet set pet_match_id='.concat(matchingPetId.toString(), ' where pet_id=', parentPetId.toString())
     sql.query(query, function (error, data) {
         if (error) {
             console.log("error: ", error);

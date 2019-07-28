@@ -89,7 +89,7 @@
           <h4> Upload image </h4>
           <div class="form-group">
             <div class="custom-file">
-              <input type="file" class="custom-file-input">
+              <input type="file" class="custom-file-input"  accept="image/*"  (change)="handleInputChange($event)" >
               <label class="custom-file-label">Choose file</label>
             </div>
           </div>
@@ -113,8 +113,8 @@
           <div class="form-group">
               <label>Gender</label>
               <select class="form-control" [(ngModel)] ="gender" name = "gender">
-                <option>Male</option>
-                <option>Female</option>                  
+                <option ngValue="male">Male</option>
+                <option ngValue="female">Female</option>                  
               </select>
             </div>
             
@@ -198,7 +198,7 @@
             <h4> Upload image </h4>
             <div class="form-group">
               <div class="custom-file">
-                <input type="file" class="custom-file-input">
+                  <input type="file" class="custom-file-input"  accept="image/*"  (change)="handleInputChange($event)" >
                 <label class="custom-file-label">Choose file</label>
               </div>
             </div>

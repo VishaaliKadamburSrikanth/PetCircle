@@ -2,7 +2,7 @@
  Created by
  Aravind Sundarrajan (B00824107)
 */
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { PetDetails } from './pet.details.model';
 
 @Component({
@@ -12,9 +12,12 @@ import { PetDetails } from './pet.details.model';
 })
 export class PetsListComponent implements OnInit {
   @Input() petDetails: PetDetails[] = [];
+  @Output() selectedPet: EventEmitter<PetDetails> = new EventEmitter<PetDetails>();
   constructor() { }
 
   ngOnInit() {
   }
-
+  selectPet(item) {
+    this.selectedPet.emit(item);
+  }
 }

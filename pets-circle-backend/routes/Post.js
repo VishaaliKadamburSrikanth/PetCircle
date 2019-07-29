@@ -26,10 +26,11 @@ Post.postPets = function (req, result) {
     var category = req.body.category;
     var own_pet = req.body.own_pet;
     var care = req.body.care;
+    var image = req.body.image;
          
-    var insertQuery = "insert into pet (pet_name,breed,age,gender,color,phoneno,email,description,category,annual_income,own_pet,care) values (?,?,?,?,?,?,?,?,?,?,?,?)"
+    var insertQuery = "insert into pet (pet_name,breed,age,gender,color,phoneno,email,description,category,annual_income,own_pet,care,image) values (?,?,?,?,?,?,?,?,?,?,?,?,?)"
     
-    sql.query(insertQuery, [name,breed,age,gender,color,phoneno,email,desc,category,annual_income,own_pet,care], function (err, res) {             
+    sql.query(insertQuery, [name,breed,age,gender,color,phoneno,email,desc,category,annual_income,own_pet,care,image], function (err, res) {             
             if(err) {   
                 console.log("[mysql error]",err);
                 result(err, null);

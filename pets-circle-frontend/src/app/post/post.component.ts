@@ -16,28 +16,28 @@ export class PostComponent implements OnInit {
   telephoneinvalid: Boolean;
 
   // api 
-  postpets : postPets;  
+  postpets: postPets;
   breed: string;
   color: string;
   desc: string;
   name: string;
-  gender: string;
+  gender: string="male";
   age: number;
   phoneno: number;
   email: string;
-  category: string;  
+  category: string;
   income: string;
   care: string;
-  
+  imageUrl: string;
+
 
   constructor(private postservice: PostService) { }
 
   ngOnInit() {
   }
 
-  
-  postMissingPets()
-  {
+
+  postMissingPets() {
     console.log("into post missing pets");
 
     var params = {
@@ -47,57 +47,72 @@ export class PostComponent implements OnInit {
       age: this.age,
       breed: this.breed,
       color: this.color,
-      phoneno: this.phoneno, 
-      email: this.email, 
-      category: 'missing',  
-      desc: this.desc 
-      }    
-      
-    console.log(this.name);
-    console.log(params);
-    
-    this.postservice.postMissingPets(params)
-    .subscribe((data: postPets) => this.postpets = data);
-    
+      phoneno: this.phoneno,
+      email: this.email,
+      category: 'missing',
+      desc: this.desc,
+      image: this.imageUrl
     }
 
-postAdoptionPets()
-    {
-      var params = {
+    console.log(this.name);
+    console.log(params);
+
+    this.postservice.postMissingPets(params)
+      .subscribe((data: postPets) => this.postpets = data);
+
+  }
+
+  postAdoptionPets() {
+    var params = {
       name: this.name,
       gender: this.gender,
       age: this.age,
       breed: this.breed,
       color: this.color,
-      phoneno: this.phoneno, 
-      email: this.email, 
-      category: 'adoption',       
+      phoneno: this.phoneno,
+      email: this.email,
+      category: 'adoption',
       annual_income: this.income,
-      care: this.care
-
-      }
-
-
-console.log(params);
-
-this.postservice.postAdoptionPets(params)
-.subscribe((data: postPets) => this.postpets = data); 
+      care: this.care,
+      image: this.imageUrl
     }
 
-postPlaytimePets()
-    {
-      var params = {
-        breed:this.breed,
-        color:this.color,
-        desc:this.desc    
-      }
 
+    console.log(params);
 
-console.log(params);
-
-this.postservice.postPlaytimePets(params)
-.subscribe((data: postPets) => this.postpets = data); 
+    this.postservice.postAdoptionPets(params)
+      .subscribe((data: postPets) => this.postpets = data);
+  }
+  handleInputChange(e) {
+    var file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
+    var imagepattern = /image-*/;
+    var reader = new FileReader();
+    if (!file.type.match(imagepattern)) {
+      alert('invalid format');
+      return;
     }
+    reader.onload = this._handleReaderLoaded.bind(this);
+    reader.readAsDataURL(file);
+  }
+  //image is converted into url here
+  _handleReaderLoaded(e) {
+    let reader = e.target;
+    this.imageUrl = reader.result;
+
+  }
+  postPlaytimePets() {
+    var params = {
+      breed: this.breed,
+      color: this.color,
+      desc: this.desc
+    }
+
+
+    console.log(params);
+
+    this.postservice.postPlaytimePets(params)
+      .subscribe((data: postPets) => this.postpets = data);
+  }
 
 
   show() {
@@ -155,5 +170,5 @@ this.postservice.postPlaytimePets(params)
 
 
   }
-   
+
 }

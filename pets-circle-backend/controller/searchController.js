@@ -26,10 +26,21 @@ exports.getBreeds = function (request, response) {
     });
 };
 
+exports.getColors = function (request, response) {
+    search.getColors(function (error, data) {
+        if (error) {
+            response.send(error);
+        }
+        console.log('res', data);
+        response.send(data);
+    });
+};
+
 exports.searchPets = function (request, response) {
     let breed = request.body.breed;
     let category = request.body.category;
-    search.getPets(breed, category, (error, data) => {
+    let color = request.body.color
+    search.getPets(breed, category, color, (error, data) => {
         if (error) {
             response.send(error);
         } else {
@@ -37,3 +48,14 @@ exports.searchPets = function (request, response) {
         }
     });
 };
+exports.matchPet = function (request, response) {
+    let parentPetId = request.body.parentPetId
+    let matchingPetId = request.body.matchingPetId
+    search.matchPet(parentPetId, matchingPetId, (error, data) => {
+        if (error) {
+            response.send(error);
+        } else {
+            response.json(data);
+        }
+    })
+}

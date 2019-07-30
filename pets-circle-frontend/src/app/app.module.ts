@@ -31,6 +31,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { HttpClientModule} from '@angular/common/http';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { MatchPetComponent } from './match-pet/match-pet.component';
+import { PostpetComponent } from './postpet/postpet.component';
+import { PetdetailslistComponent } from './petdetailslist/petdetailslist.component';
+import { EditpetComponent } from './editpet/editpet.component';
 
 
 @NgModule({
@@ -49,7 +52,10 @@ import { MatchPetComponent } from './match-pet/match-pet.component';
     MessagesComponent,
     PetDetailsComponent,
     SpinnerComponent,
-    MatchPetComponent
+    MatchPetComponent,
+    PostpetComponent,
+    PetdetailslistComponent,
+    EditpetComponent
   ],
   imports: [
     BrowserModule,

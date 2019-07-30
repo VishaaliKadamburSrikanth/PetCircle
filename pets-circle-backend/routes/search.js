@@ -49,8 +49,8 @@ search.getColors = function (response) {
 search.getPets = (breed, category, color, response) => {
     console.log('breed  ' + breed + 'category       ' + category + 'color ' + color)
     console.log('**********')
-    let query = "select * from pet"
-    // let query = "select * from pet where breed='" + breed + "' and category='" + category + "' and color='" + color + "'"
+    // let query = "select * from pet"
+    let query = "select * from pet where breed='" + breed + "' and category='" + category + "' and color='" + color + "'"
     console.log(query);
     sql.query(query, function (error, data) {
         if (error) {

@@ -6,7 +6,10 @@
 module.exports = function (app) {
   var controller = require('./controller/appController');
   const searchController = require('./controller/searchController');
+  var signin = require('./controller/signincontroller')
+  var postpet = require('./controller/postpetsController');
   console.log("into app routes")
+
 
   // Cors handling
   app.use(function (req, res, next) {
@@ -33,10 +36,6 @@ module.exports = function (app) {
   app.route('/getColors')
     .get(searchController.getColors)
 
-  // match pets
-  app.route('/matchPet')
-    .post(searchController.matchPet)
-    
   //Routes to post about the pet
   //Post - Missing pets
   app.route('/postMissingPets')
@@ -49,4 +48,21 @@ module.exports = function (app) {
   //Post - Pplaytime pets
   app.route('/postPlaytimePets')
     .post(controller.post);
+
+  app.route('/signin')
+    .post(signin.signin);
+
+
+  // post pet functionality
+  app.route('/postpet/postpets')
+    .post(postpet.postdetails);
+
+  app.route('/postpet/getpets')
+    .get(postpet.getpets);
+  // match pets
+  app.route('/matchPet')
+    .post(searchController.matchPet)
+
+
+
 };

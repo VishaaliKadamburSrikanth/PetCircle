@@ -6,7 +6,7 @@
       <form>
         <div class="form-group">
           <label>Email</label>
-          <input type="text" class="form-control" placeholder="Enter email" id="email">
+          <input type="text" class="form-control" [(ngModel)]="email" placeholder="Enter email" id="email">
         </div>
         <div *ngIf="emailinvalid" class="error">
           Please enter a valid email
@@ -14,7 +14,7 @@
 
         <div class="form-group">
           <label>Password </label>
-          <input type="password" class="form-control" placeholder="Enter password" id="password">
+          <input type="password" class="form-control" [(ngModel)]="password" placeholder="Enter password" id="password">
         </div>
         <div *ngIf="passwordinvalid" class="error">
           Please enter a password
@@ -27,7 +27,7 @@
           <input type="submit" (click)="Validate()" value="Login" class="btn btn-primary mt-4" id="signin">
         </div>
         <div class="register">
-          Are you a new user ? <a href> Register here</a>
+          Are you a new user ? <a [routerLink]="['/register']" > Register here</a>
         </div>
       </form>
     </div>

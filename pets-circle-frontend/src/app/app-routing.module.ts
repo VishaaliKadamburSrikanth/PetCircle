@@ -11,6 +11,11 @@ import { MissingPetsComponent } from './missing-pets/missing-pets.component';
 import { MessagesComponent } from './messages/messages.component';
 import { PetDetailsComponent } from './pet-details/pet-details.component';
 import { MatchPetComponent } from './match-pet/match-pet.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { PostpetComponent } from './postpet/postpet.component';
+import { PetdetailslistComponent } from './petdetailslist/petdetailslist.component';
+import { EditpetComponent } from './editpet/editpet.component';
+
 
 const routes: Routes = [
   {
@@ -20,6 +25,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'register',
+    component: RegistrationComponent
   },
   {
     path: 'pet-details',
@@ -38,12 +47,24 @@ const routes: Routes = [
     component: PostComponent
   },
   {
+    path: 'postpet',
+    component: PostpetComponent
+  },
+  {
     path: 'missing-pets',
     component: MissingPetsComponent
   },
   {
     path: 'find-match',
     component: MatchPetComponent
+  },
+  {
+    path: 'petdetailslist',
+    component: PetdetailslistComponent
+  },
+  {
+    path: 'editpet',
+    component: EditpetComponent
   },
   {
     path: 'match',

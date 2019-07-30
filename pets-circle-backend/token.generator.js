@@ -1,15 +1,20 @@
 let jwt = require('jsonwebtoken');
 let config = require('./secret');
 let middleware = require('./auth');
+var sql = require('../database/dbconfig.js');
+var mysql = require('mysql');
 
 class TokenGenerator {
     login(req, res) {
-        let username = req.body.username;
-        let password = req.body.password;
-        // For the given username fetch user from DB
+        let username = req.body.mailid;
+        let pwd = req.body.password;
+        sql
+        console.log(username);
+        console.log(pwd);
         let mockedUsername = 'admin';
         let mockedPassword = 'password';
-
+        var results=[];
+        
         if (username && password) {
             if (username === mockedUsername && password === mockedPassword) {
                 let token = jwt.sign({ username: username },

@@ -27,7 +27,7 @@
         <a class="nav-link item"  routerLink="/messages">Messages</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link item"  routerLink="/pet-details">Pet Details</a>
+        <a class="nav-link item"  routerLink="/petdetailslist">your-pets </a>
       </li>
       <li class="nav-item">
         <a class="nav-link item">About us</a>
@@ -36,10 +36,10 @@
         <a class="nav-link item">Support</a>
       </li>
       <li class="nav-item margin-10">
-        <button type="button" class="btn btn-outline-light" routerLink="/login">Login</button>
+        <button *ngIf="(message=='not loggedin')" type="button" class="btn btn-outline-light" routerLink="/login">Login</button>
       </li>
     </ul>
-    <div class="dropdown">
+    <div *ngIf="(message!='not loggedin')" class="dropdown">
       <a><img src="assets/images/login.png" id="user" alt="userpic"> </a>
       <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="profile">
       </button>

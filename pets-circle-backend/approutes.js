@@ -6,6 +6,7 @@
 module.exports = function (app) {
   var controller = require('./controller/appController');
   const searchController = require('./controller/searchController');
+  const MutualController = require('./controller/MutualController');
   console.log("into app routes")
 
   // Cors handling
@@ -20,6 +21,10 @@ module.exports = function (app) {
     .get(controller.fetchMissingPets)
     .post(controller.filterMissingPets);
 
+  app.route('/mutual-match')
+    .get(MutualController.fetchMutualMatchPets)
+  app.route('/contact')
+    .get(MutualController.fetchMutualMatchPets)
   /**
    * Search functionality
    */

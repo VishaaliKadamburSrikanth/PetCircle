@@ -22,8 +22,7 @@ export class MissingPetsComponent implements OnInit {
 
   ngOnInit() {
     this.missingservice.fetchMissingPets()
-    .subscribe((data: MissingPets) => this.missingPets = data); 
-    
+    .subscribe((data: MissingPets) => this.missingPets = data);    
  }
 
  filterMissingPets()

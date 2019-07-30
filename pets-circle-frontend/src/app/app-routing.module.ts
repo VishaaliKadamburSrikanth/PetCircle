@@ -8,8 +8,12 @@ import { YourPetsComponent } from './your-pets/your-pets.component';
 import { LoginComponent } from './login/login.component';
 import { PostComponent } from './post/post.component';
 import { MissingPetsComponent } from './missing-pets/missing-pets.component';
+import { MutualMatchComponent } from './mutual-match/mutual-match.component';
 import { MessagesComponent } from './messages/messages.component';
+import { SwipeComponent } from './swipe/swipe.component';
 import { PetDetailsComponent } from './pet-details/pet-details.component';
+import { ContactComponent } from './contact/contact.component';
+
 
 const routes: Routes = [
   {
@@ -29,6 +33,10 @@ const routes: Routes = [
     component: MessagesComponent,
   },
   {
+    path: 'contact',
+    component: ContactComponent,
+  },
+  {
     path: 'your-pets',
     component: YourPetsComponent,
   },
@@ -39,6 +47,14 @@ const routes: Routes = [
   {
     path: 'missing-pets',
     component: MissingPetsComponent
+  },
+  {
+    path: 'swipe',
+    component: SwipeComponent
+  },
+  {
+    path: 'mutual-match',
+    component: MutualMatchComponent
   },
   {
     path: 'match',

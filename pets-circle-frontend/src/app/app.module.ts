@@ -29,7 +29,9 @@ import { PetDetailsComponent } from './pet-details/pet-details.component';
 import { MissingService} from  './missing-pets/missing.service';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { HttpClientModule} from '@angular/common/http';
-
+import { MutualMatchComponent } from './mutual-match/mutual-match.component';
+import { SwipeComponent } from './swipe/swipe.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,10 @@ import { HttpClientModule} from '@angular/common/http';
     MissingPetsComponent,
     RegistrationComponent,
     MessagesComponent,
-    PetDetailsComponent
+    PetDetailsComponent,
+    MutualMatchComponent,
+    SwipeComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

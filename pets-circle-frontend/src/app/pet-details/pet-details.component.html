@@ -7,19 +7,15 @@
       </div>
     </div>
     <app-spinner [show]="showSpinner"></app-spinner>
+    <div class="clearfix"></div>
     <div class="row">
     
     <div class="col-12">
       <div *ngFor="let data of petData">
       <div class="row">
-        <div class="col-md-6" id="pets2">
+        <div class="col-md-3" id="pets2">
           <div class="card" style="width:100% ">
             <img class="img-thumbnail" [src]="data.image"  i alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">{{data.pet_name}}</h5>
-  
-            </div>
-  
           </div>
   
         </div>
@@ -80,7 +76,6 @@
                 </tr>
                 
               </table>
-              <input class=buttonstyle class="btn btn-secondary" type="submit"  [routerLink]="['/editpet']"  value="edit">
             </div>
           </div>
         </div>

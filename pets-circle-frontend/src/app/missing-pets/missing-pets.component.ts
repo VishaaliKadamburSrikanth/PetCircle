@@ -10,10 +10,10 @@ import { MissingService, MissingPets } from './missing.service';
   selector: 'app-missing-pets',
   templateUrl: './missing-pets.component.html',
   styleUrls: ['./missing-pets.component.scss'],
-  })
+})
 export class MissingPetsComponent implements OnInit {
-
-  missingPets : MissingPets;  
+  showSpinner = true;
+  missingPets: MissingPets;
   breed: string;
   color: string;
   desc: string;
@@ -22,23 +22,25 @@ export class MissingPetsComponent implements OnInit {
 
   ngOnInit() {
     this.missingservice.fetchMissingPets()
-    .subscribe((data: MissingPets) => this.missingPets = data); 
-    
- }
+      .subscribe((data: MissingPets) => {
+        this.missingPets = data
+        this.showSpinner = false;
+      });
 
- filterMissingPets()
-{
-  var params = {
-                breed:this.breed,
-                color:this.color,
-                desc:this.desc    
-              }
-  
+  }
 
-  console.log(params);
-  
-  this.missingservice.filterMissingPets(params)
-  .subscribe((data: MissingPets) => this.missingPets = data); 
+  filterMissingPets() {
+    var params = {
+      breed: this.breed,
+      color: this.color,
+      desc: this.desc
+    }
+
+
+    console.log(params);
+
+    this.missingservice.filterMissingPets(params)
+      .subscribe((data: MissingPets) => this.missingPets = data);
   }
 
 }

@@ -23,8 +23,8 @@
       </div>
 
   </nav>
-
-<div class="row card-group">
+  <app-spinner [show]="showSpinner"></app-spinner>
+<div class="row card-group" *ngIf="!showSpinner">
       <div class="card-deck">  
           <div class="card mb-4" *ngFor="let mp of missingPets | paginate: { id: 'pages',itemsPerPage: 9,currentPage: page}">
             <img class="card-img-top" src="{{mp.image}}" alt="Missing pet">
@@ -38,7 +38,7 @@
         </div>
       </div>
       
-      <div class="pagination">
+      <div class="pagination" *ngIf="!showSpinner">
           <pagination-controls  id="pages" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
       </div>
       

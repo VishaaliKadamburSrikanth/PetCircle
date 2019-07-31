@@ -23,7 +23,7 @@ export class PostpetComponent implements OnInit {
   petData: any = {};
   validation: boolean = true;
   constructor(private PetpostserviceService: PetpostserviceService, private router: Router) { }
-
+  subscription;
   ngOnInit() {
 
     this.pet_age = "";
@@ -77,7 +77,7 @@ export class PostpetComponent implements OnInit {
 
       }
 
-      this.PetpostserviceService.addpet(this.petData).subscribe(petdata => {
+      this.subscription = this.PetpostserviceService.addpet(this.petData).subscribe(petdata => {
 
         this.petData = petdata;
 
@@ -86,6 +86,9 @@ export class PostpetComponent implements OnInit {
         );
       });
       setTimeout(() => {
+        if (this.subscription) {
+          this.subscription.unsubscribe();
+        }
         this.router.navigate(['/your-pets']);
       }, 1000)
 

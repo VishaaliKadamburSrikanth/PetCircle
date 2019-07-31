@@ -33,7 +33,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { MatchPetComponent } from './match-pet/match-pet.component';
 import { PostpetComponent } from './postpet/postpet.component';
 import { PetdetailslistComponent } from './petdetailslist/petdetailslist.component';
-import { EditpetComponent } from './editpet/editpet.component';
 
 
 @NgModule({
@@ -54,8 +53,7 @@ import { EditpetComponent } from './editpet/editpet.component';
     SpinnerComponent,
     MatchPetComponent,
     PostpetComponent,
-    PetdetailslistComponent,
-    EditpetComponent
+    PetdetailslistComponent
   ],
   imports: [
     BrowserModule,

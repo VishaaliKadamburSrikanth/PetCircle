@@ -16,7 +16,7 @@ var q = "";
 postpet.postdetails = function (req, res) {
     console.log("entered")
 
-    sql.query("insert into web.pet (pet_name,age,description,gender,category,color,breed,image,pet_owner_id) values('" + req.body.pet_name + "','" + req.body.pet_age + "','" + req.body.pet_description + "','" + req.body.pet_gender + "','postpet','" + req.body.pet_color + "','" + req.body.pet_breed + "','" + req.body.imageUrl + "'," + req.body.owner_id + ")", function (err, result) {
+    sql.query("insert into web.pet (pet_name,age,description,gender,category,color,breed,image,pet_owner_id) values('" + req.body.pet_name + "','" + req.body.pet_age + "','" + req.body.pet_description + "','" + req.body.pet_gender + "','partner1','" + req.body.pet_color + "','" + req.body.pet_breed + "','" + req.body.imageUrl + "'," + req.body.owner_id + ")", function (err, result) {
         if (err) {
             res.send(500, "Query error");
             console.log(err);

@@ -14,8 +14,6 @@ import { MatchPetComponent } from './match-pet/match-pet.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { PostpetComponent } from './postpet/postpet.component';
 import { PetdetailslistComponent } from './petdetailslist/petdetailslist.component';
-import { EditpetComponent } from './editpet/editpet.component';
-
 
 const routes: Routes = [
   {
@@ -58,11 +56,7 @@ const routes: Routes = [
     path: 'your-pets',
     component: PetdetailslistComponent
   },
-  {
-    path: 'editpet',
-    component: EditpetComponent
-  },
-  {
+ {
     path: 'match',
     component: MatchComponent,
     children: [

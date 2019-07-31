@@ -18,14 +18,7 @@ class TokenGenerator {
         var username = req.body.email;
         var password = req.body.password;
         // For the given username fetch user from DB
-        console.log(username, '*************** uname')
-        console.log(password, '*************** pwd')
-
-
-
-
-
-        sql.query("select mailid,password from web.user where mailid='" + req.body.email + "' ", function (err, rows) {
+        sql.query("select user_id,mailid,password from web.user where mailid='" + req.body.email + "' ", function (err, rows) {
             let token;
             if (err) {
                 throw err;
@@ -41,14 +34,15 @@ class TokenGenerator {
                             }
 
                         );
-                        console.log(token),
-                            // return the JWT token for the future API calls
-                            res.json({
-                                message: 'Authentication successful!',
-                                token: token,
-                                success: true,
-
-                            });
+                        console.log(token)
+                        console.log(rows[0])
+                        // return the JWT token for the future API calls
+                        res.json({
+                            message: 'Authentication successful!',
+                            token: token,
+                            success: true,
+                            id: rows[0].user_id
+                        });
                     }
                 }
                 else {

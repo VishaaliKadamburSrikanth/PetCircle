@@ -55,7 +55,7 @@ exports.matchPet = function (request, response) {
         if (error) {
             response.send(error);
         } else {
-            response.json(data);
+            response.json(true);
         }
     })
 }

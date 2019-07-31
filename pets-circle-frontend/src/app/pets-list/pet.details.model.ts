@@ -12,5 +12,9 @@ export interface PetDetails {
     color: string;
     image: string;
     pet_id: number;
+    phoneno: number;
+    email: string;
     pet_name: string;
+    showMatchButton?: boolean;
+    showRadioButton?: boolean;
 }

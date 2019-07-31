@@ -39,10 +39,6 @@ const routes: Routes = [
     component: MessagesComponent,
   },
   {
-    path: 'your-pets',
-    component: YourPetsComponent,
-  },
-  {
     path: 'post',
     component: PostComponent
   },
@@ -59,7 +55,7 @@ const routes: Routes = [
     component: MatchPetComponent
   },
   {
-    path: 'petdetailslist',
+    path: 'your-pets',
     component: PetdetailslistComponent
   },
   {

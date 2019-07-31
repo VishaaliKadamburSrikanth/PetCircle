@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Slider } from './slider.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -38,8 +39,10 @@ export class HomeComponent implements OnInit {
       description: 'Lorem ipsum dolor sit amet Neque porro quisquam est qui dolorem',
     }
   ];
-  constructor() { }
-
+  constructor(private routes: Router) { }
+  goToSign() {
+    this.routes.navigate(['/register']);
+  }
   ngOnInit() {
   }
 

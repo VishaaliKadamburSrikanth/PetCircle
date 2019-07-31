@@ -93,13 +93,17 @@ export class SearchComponent implements OnInit {
         "color": this.selectedColor === undefined ? '' : this.getColorName(this.selectedColor),
       })
       .subscribe((data: PetDetails[]) => {
-        this.petDetails = data;
+        this.petDetails = this.showMatchButtonForAllPets(data);
         this.showSpinner = false;
       })
   }
   selectedPet(event) {
     localStorage.setItem('parentItem', JSON.stringify(event));
     this.router.navigate(['/find-match']);
+  }
+  showMatchButtonForAllPets(data) {
+    data.forEach(item => item.showMatchButton = true);
+    return data;
   }
   getCategoryName(id: number) {
     return this.categories.find(item => item.id === id).name

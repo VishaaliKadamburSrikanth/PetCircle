@@ -4,6 +4,7 @@ import { PetDetails } from '../pets-list/pet.details.model';
 import { HttpClient } from '@angular/common/http';
 import { BASE_URL } from 'src/environments/environment';
 import Swal from 'sweetalert2';
+import { DataService } from '../data.service';
 @Component({
   selector: 'app-match-pet',
   templateUrl: './match-pet.component.html',
@@ -16,12 +17,16 @@ export class MatchPetComponent implements OnInit {
   petToBeMatched: PetDetails;
   parentPet: PetDetails;
   petsMatchedSuccessFully = false;
-  constructor(private petpost: PetpostserviceService, private httpClient: HttpClient) { }
+  constructor(private petpost: PetpostserviceService,
+    private dataService: DataService, private httpClient: HttpClient) { }
 
   ngOnInit() {
-    this.parentPet = <PetDetails>JSON.parse(localStorage.getItem('parentItem'));
-    this.parentPet.showMatchButton = false
-
+    // this.parentPet = <PetDetails>JSON.parse(localStorage.getItem('parent'));
+    
+    this.dataService.getParentItem().subscribe((item: PetDetails) => {
+      this.parentPet = item;
+      this.parentPet.showMatchButton = false;
+    })
     this.petDetails.push(this.parentPet);
     this.petpost.getpets(localStorage.getItem('userId')).subscribe((petdata: PetDetails[]) => {
       this.showSpinner = false;
@@ -39,14 +44,14 @@ export class MatchPetComponent implements OnInit {
       "matchingPetId": this.parentPet.pet_id
     }).subscribe(data => {
       if (data) {
-        this.petsMatchedSuccessFully=true;
+        this.petsMatchedSuccessFully = true;
         Swal.fire(
           'Your pet\'s partner is found !',
-         ` Please use the following email address <strong>${this.parentPet.email}</strong> or
+          ` Please use the following email address <strong>${this.parentPet.email}</strong> or
          phone number <strong>${this.parentPet.phoneno}</strong> for further communication`,
           'success'
         )
-      } 
+      }
     })
 
   }

@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 import { BASE_URL } from 'src/environments/environment';
 import * as _ from 'lodash';
 import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -28,7 +29,7 @@ export class SearchComponent implements OnInit {
   suggesstions = [];
   showErrorMessage = false;
   constructor(private httpClient: HttpClient,
-    private router: Router) { }
+    private router: Router, private dataService: DataService) { }
 
   ngOnInit() {
     this.getBreeds();
@@ -98,12 +99,20 @@ export class SearchComponent implements OnInit {
       })
   }
   selectedPet(event) {
-    localStorage.setItem('parentItem', JSON.stringify(event));
+    // localStorage.setItem('parent', JSON.stringify(event));
+    this.dataService.setParentItem(event);
     this.router.navigate(['/find-match']);
   }
   showMatchButtonForAllPets(data) {
-    data.forEach(item => item.showMatchButton = true);
-    return data;
+    let localData = [];
+    let userId = localStorage.getItem('userId');
+    data.forEach(item => {
+      if (item.pet_owner_id !== +userId) {
+        item.showMatchButton = true
+        localData.push(item)
+      }
+    });
+    return localData;
   }
   getCategoryName(id: number) {
     return this.categories.find(item => item.id === id).name

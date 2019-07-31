@@ -8,7 +8,9 @@ exports.postdetails = function (req, res) {
     petdetails.postdetails(req, function (err, result) {
         if (err)
             res.send(err);
-
+        else {
+            res.send(result)
+        }
 
 
     });
@@ -20,7 +22,6 @@ exports.getpets = function (request, res) {
         if (error) {
             res.send(error);
         }
-
 
         res.send(data);
     });

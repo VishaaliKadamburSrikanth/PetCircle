@@ -86,9 +86,7 @@ export class PostpetComponent implements OnInit {
         );
       });
       setTimeout(() => {
-        if (this.subscription) {
-          this.subscription.unsubscribe();
-        }
+    
         this.router.navigate(['/your-pets']);
       }, 1000)
 
